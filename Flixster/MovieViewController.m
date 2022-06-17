@@ -6,8 +6,9 @@
 //
 
 #import "MovieViewController.h"
-#import "MovieCellTableViewCell.h"
+#import "MovieCell.h"
 #import "UIImageView+AFNetworking.h"
+#import "DetailsViewController.h"
 
 @interface MovieViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -24,7 +25,7 @@
    
     [self.activityIndicator startAnimating];
     
-    self.tableView.rowHeight = 200;
+    self.tableView.rowHeight = 235;
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     
@@ -36,13 +37,12 @@
 }
 
 - (void)fetchMovies {
-    
     UIAlertController *networkAlert = [UIAlertController
                                        alertControllerWithTitle:@"Cannot Get Movies" message:@"The internet connection appears to be offline." preferredStyle:(UIAlertControllerStyleAlert)];
     UIAlertAction *tryAgainAction = [UIAlertAction actionWithTitle:@"Try Again" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             [self fetchMovies];
     }];
-    // add the tryAgainAction action to the alertController
+
     [networkAlert addAction:tryAgainAction];
 
     // Do any additional setup after loading the view.
@@ -63,7 +63,6 @@
                
                self.myArray = dataDictionary[@"results"];
                
-
                for(NSDictionary *movie in self.myArray) {
                    NSLog(@"%@", movie[@"title"]);
                }
@@ -82,29 +81,38 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MovieCellTableViewCell" forIndexPath:indexPath];
-    MovieCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MovieCell"];
-    
+    MovieCell *cell = [tableView dequeueReusableCellWithIdentifier:@"movieCell" forIndexPath:indexPath];
     NSDictionary *movie = self.myArray[indexPath.row];
-    
+
+    NSLog(@"%@", movie);
+
     cell.MovieTitle.text = movie[@"title"];
     cell.MovieSynopsis.text = movie[@"overview"];
-    
-    NSString *posterUrl = @"/6JjfSchsU6daXk2AKX8EEBjO3Fm.jpg";
 
+    NSString *posterUrl = movie[@"poster_path"];
     NSString *baseURLString = @"https://image.tmdb.org/t/p/w500";
     NSString *fullPosterUrl = [baseURLString stringByAppendingString:posterUrl];
-        
     NSURL *posterURLString = [NSURL URLWithString:fullPosterUrl];
-    
     [cell.ImageView setImageWithURL:posterURLString];
 
     return  cell;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    //return self.myArray.count;
-    return 10;
+    return self.myArray.count;
+}
+
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    UITableViewCell *cell = sender;
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+
+    NSDictionary *data = self.myArray[indexPath.row];
+    DetailsViewController *detailViewController = [segue destinationViewController];
+    detailViewController.dictionary = data;
 }
 
 @end

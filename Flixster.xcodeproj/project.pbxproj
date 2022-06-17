@@ -18,9 +18,10 @@
 		750ED2C7285A45B500C15625 /* FlixsterUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 750ED2C6285A45B500C15625 /* FlixsterUITests.m */; };
 		750ED2C9285A45B500C15625 /* FlixsterUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 750ED2C8285A45B500C15625 /* FlixsterUITestsLaunchTests.m */; };
 		75E8C5FF285BC59A00280D58 /* MovieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E8C5FE285BC59A00280D58 /* MovieViewController.m */; };
-		75E8C608285BC7E100280D58 /* MovieCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E8C607285BC7E100280D58 /* MovieCellTableViewCell.m */; };
+		75E8C608285BC7E100280D58 /* MovieCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E8C607285BC7E100280D58 /* MovieCell.m */; };
 		75E8C60B285BF7E700280D58 /* GridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E8C60A285BF7E700280D58 /* GridViewController.m */; };
 		75E8C60E285C29FF00280D58 /* GridMovieCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E8C60D285C29FF00280D58 /* GridMovieCell.m */; };
+		75E8C61A285CE5D700280D58 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E8C619285CE5D700280D58 /* DetailsViewController.m */; };
 		B66F61268EDB0552E364E9FF /* Pods_Flixster.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61BCCC92BF385C7660962ABD /* Pods_Flixster.framework */; };
 		B77A126E64B5126336C4BC2F /* Pods_Flixster_FlixsterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5283CC066E105EFA93C4B7F1 /* Pods_Flixster_FlixsterUITests.framework */; };
 /* End PBXBuildFile section */
@@ -65,12 +66,14 @@
 		750ED2C8285A45B500C15625 /* FlixsterUITestsLaunchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlixsterUITestsLaunchTests.m; sourceTree = "<group>"; };
 		75E8C5FD285BC59A00280D58 /* MovieViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieViewController.h; sourceTree = "<group>"; };
 		75E8C5FE285BC59A00280D58 /* MovieViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieViewController.m; sourceTree = "<group>"; };
-		75E8C606285BC7E100280D58 /* MovieCellTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieCellTableViewCell.h; sourceTree = "<group>"; };
-		75E8C607285BC7E100280D58 /* MovieCellTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieCellTableViewCell.m; sourceTree = "<group>"; };
+		75E8C606285BC7E100280D58 /* MovieCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieCell.h; sourceTree = "<group>"; };
+		75E8C607285BC7E100280D58 /* MovieCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieCell.m; sourceTree = "<group>"; };
 		75E8C609285BF7E700280D58 /* GridViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GridViewController.h; sourceTree = "<group>"; };
 		75E8C60A285BF7E700280D58 /* GridViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GridViewController.m; sourceTree = "<group>"; };
 		75E8C60C285C29FF00280D58 /* GridMovieCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GridMovieCell.h; sourceTree = "<group>"; };
 		75E8C60D285C29FF00280D58 /* GridMovieCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GridMovieCell.m; sourceTree = "<group>"; };
+		75E8C618285CE5D700280D58 /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
+		75E8C619285CE5D700280D58 /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		87CD9B717CE26AD01E352DB7 /* Pods-Flixster-FlixsterUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flixster-FlixsterUITests.debug.xcconfig"; path = "Target Support Files/Pods-Flixster-FlixsterUITests/Pods-Flixster-FlixsterUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		91766A7211512F1F513FEF9E /* Pods-Flixster.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flixster.debug.xcconfig"; path = "Target Support Files/Pods-Flixster/Pods-Flixster.debug.xcconfig"; sourceTree = "<group>"; };
 		A13E355F107018B2C01B1DD2 /* Pods-FlixsterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlixsterTests.release.xcconfig"; path = "Target Support Files/Pods-FlixsterTests/Pods-FlixsterTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -139,14 +142,16 @@
 				75E8C609285BF7E700280D58 /* GridViewController.h */,
 				75E8C60A285BF7E700280D58 /* GridViewController.m */,
 				750ED2A9285A45B400C15625 /* Main.storyboard */,
+				75E8C618285CE5D700280D58 /* DetailsViewController.h */,
+				75E8C619285CE5D700280D58 /* DetailsViewController.m */,
 				75E8C60C285C29FF00280D58 /* GridMovieCell.h */,
 				75E8C60D285C29FF00280D58 /* GridMovieCell.m */,
 				750ED2AC285A45B500C15625 /* Assets.xcassets */,
 				750ED2AE285A45B500C15625 /* LaunchScreen.storyboard */,
 				750ED2B1285A45B500C15625 /* Info.plist */,
 				750ED2B2285A45B500C15625 /* main.m */,
-				75E8C606285BC7E100280D58 /* MovieCellTableViewCell.h */,
-				75E8C607285BC7E100280D58 /* MovieCellTableViewCell.m */,
+				75E8C606285BC7E100280D58 /* MovieCell.h */,
+				75E8C607285BC7E100280D58 /* MovieCell.m */,
 			);
 			path = Flixster;
 			sourceTree = "<group>";
@@ -433,9 +438,10 @@
 				75E8C5FF285BC59A00280D58 /* MovieViewController.m in Sources */,
 				750ED2A2285A45B400C15625 /* AppDelegate.m in Sources */,
 				750ED2B3285A45B500C15625 /* main.m in Sources */,
-				75E8C608285BC7E100280D58 /* MovieCellTableViewCell.m in Sources */,
+				75E8C608285BC7E100280D58 /* MovieCell.m in Sources */,
 				75E8C60B285BF7E700280D58 /* GridViewController.m in Sources */,
 				750ED2A5285A45B400C15625 /* SceneDelegate.m in Sources */,
+				75E8C61A285CE5D700280D58 /* DetailsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

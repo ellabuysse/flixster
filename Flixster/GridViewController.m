@@ -51,10 +51,6 @@
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
            if (error != nil) {
                NSLog(@"%@", [error localizedDescription]);
-               [self presentViewController:networkAlert animated:YES completion:^{
-                                  // optional code for what happens after the alert controller has finished presenting
-                              }];
-               
            }
            else {
                NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
@@ -73,19 +69,15 @@
 }
 
 
-
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     
     GridMovieCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MovieGridCell" forIndexPath:indexPath];
 
-    
     NSDictionary *movie = self.movies[indexPath.row];
     
     NSString *baseURLString = @"https://image.tmdb.org/t/p/w500";
     NSString *fullPosterUrl = [baseURLString stringByAppendingString:movie[@"poster_path"]];
-    
     NSURL *posterUrl = [NSURL URLWithString:fullPosterUrl];
-    
     [cell.ImageView setImageWithURL:posterUrl];
     
     return cell;
@@ -95,14 +87,8 @@
     int totalwidth = self.moviesCollectionView.bounds.size.width;
     int numberOfCellsPerRow = 3;
     int widthDimensions = (CGFloat)(totalwidth / numberOfCellsPerRow);
-    int heightDimensions = widthDimensions * 1.2;
+    int heightDimensions = widthDimensions * 1.5;
     return CGSizeMake(widthDimensions, heightDimensions);
 }
-
-/*
-#pragma mark - Navigation
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-*/
-
 
 @end
