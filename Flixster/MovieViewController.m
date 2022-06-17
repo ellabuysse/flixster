@@ -12,7 +12,7 @@
 
 @interface MovieViewController () <UITableViewDataSource, UITableViewDelegate>
 
-@property (nonatomic, strong) NSArray *myArray;
+@property (nonatomic, strong) NSArray *movies;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
@@ -61,9 +61,9 @@
                NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
                NSLog(@"%@", dataDictionary);
                
-               self.myArray = dataDictionary[@"results"];
+               self.movies = dataDictionary[@"results"];
                
-               for(NSDictionary *movie in self.myArray) {
+               for(NSDictionary *movie in self.movies) {
                    NSLog(@"%@", movie[@"title"]);
                }
                
@@ -82,7 +82,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     MovieCell *cell = [tableView dequeueReusableCellWithIdentifier:@"movieCell" forIndexPath:indexPath];
-    NSDictionary *movie = self.myArray[indexPath.row];
+    NSDictionary *movie = self.movies[indexPath.row];
 
     NSLog(@"%@", movie);
 
@@ -99,7 +99,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.myArray.count;
+    return self.movies.count;
 }
 
 #pragma mark - Navigation
@@ -110,7 +110,7 @@
     UITableViewCell *cell = sender;
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
 
-    NSDictionary *data = self.myArray[indexPath.row];
+    NSDictionary *data = self.movies[indexPath.row];
     DetailsViewController *detailViewController = [segue destinationViewController];
     detailViewController.dictionary = data;
 }

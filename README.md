@@ -43,11 +43,11 @@ Here's a walkthrough of implemented user stories:
 
 <img src='flixster.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
-GIF created with [Kap](https://getkap.co/).
-
 ## Notes
 
 Describe any challenges encountered while building the app.
+I had an issue where the movie poster urls weren't loading in my MovieViewController. I realized that the numberOfRowsInSection method was returning a number 10, which was preventing all the movies from loading. I changed the method to return the count of movies which solved the issue.
+At the start of the project, I had trouble connecting outlets to the components in the Movie Cell. I realized that Movie Cell in the storyboard didn't have its custom class name set correctly. Setting it to my MovieCell class solved the issue.
 
 ## Credits
 
@@ -57,7 +57,7 @@ List an 3rd party libraries, icons, graphics, or other assets you used in your a
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [2022] [Ella Buysse]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
