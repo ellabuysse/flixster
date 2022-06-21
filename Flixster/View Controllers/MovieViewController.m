@@ -25,16 +25,19 @@
    
     [self.activityIndicator startAnimating];
     
-    //self.tableView.rowHeight = 235;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
     [self fetchMovies];
     
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(fetchMovies) forControlEvents:UIControlEventValueChanged];
     [self.tableView insertSubview:self.refreshControl atIndex:0];
+    
+    NSLog(@":EB: %@", NSStringFromSelector(_cmd));
 }
 
 - (void)fetchMovies {
@@ -56,15 +59,15 @@
            }
            else {
                NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-               NSLog(@"%@", dataDictionary);
-               
+
                self.movies = dataDictionary[@"results"];
                [self.tableView reloadData];
            }
         [self.refreshControl endRefreshing];
         [self.activityIndicator stopAnimating];
         
-    }];
+        NSLog(@":EB: %@", NSStringFromSelector(_cmd));
+}];
     [task resume];
 }
 
@@ -76,16 +79,14 @@
     MovieCell *cell = [tableView dequeueReusableCellWithIdentifier:@"movieCell" forIndexPath:indexPath];
     NSDictionary *movie = self.movies[indexPath.row];
 
-    NSLog(@"%@", movie);
-
-    cell.MovieTitle.text = movie[@"title"];
-    cell.MovieSynopsis.text = movie[@"overview"];
+    cell.titleLabel.text = movie[@"title"];
+    cell.synopsisLabel.text = movie[@"overview"];
 
     NSString *posterUrl = movie[@"poster_path"];
     NSString *baseURLString = @"https://image.tmdb.org/t/p/w500";
     NSString *fullPosterUrl = [baseURLString stringByAppendingString:posterUrl];
     NSURL *posterURLString = [NSURL URLWithString:fullPosterUrl];
-    [cell.ImageView setImageWithURL:posterURLString];
+    [cell.posterImageView setImageWithURL:posterURLString];
 
     return  cell;
 }
@@ -104,7 +105,8 @@
 
     NSDictionary *data = self.movies[indexPath.row];
     DetailsViewController *detailViewController = [segue destinationViewController];
-    detailViewController.dictionary = data;
+    detailViewController.movie = data;
+    
+    NSLog(@":EB: %@", NSStringFromSelector(_cmd));
 }
-
 @end

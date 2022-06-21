@@ -60,7 +60,7 @@
                                                     <rect key="frame" x="28" y="19" width="130" height="206"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="130" id="6pK-y5-Wtj"/>
-                                                        <constraint firstAttribute="height" constant="200" id="WXV-do-gNB"/>
+                                                        <constraint firstAttribute="height" constant="220" id="PoT-ep-Znf"/>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
@@ -68,8 +68,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="neX-dx-3Po" secondAttribute="trailing" constant="8" id="A5b-Ok-LTb"/>
                                                 <constraint firstItem="neX-dx-3Po" firstAttribute="top" secondItem="N17-hu-LQz" secondAttribute="top" id="BQy-ZX-XZD"/>
                                                 <constraint firstItem="hKH-uY-uTz" firstAttribute="leading" secondItem="neX-dx-3Po" secondAttribute="leading" id="Nc4-Ut-ry6"/>
-                                                <constraint firstItem="neX-dx-3Po" firstAttribute="leading" secondItem="N17-hu-LQz" secondAttribute="trailing" constant="8" id="XIw-lj-bIl"/>
-                                                <constraint firstAttribute="bottom" secondItem="N17-hu-LQz" secondAttribute="bottom" constant="8" id="bJp-eg-yag"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="N17-hu-LQz" secondAttribute="bottom" constant="8" id="bJp-eg-yag"/>
                                                 <constraint firstItem="N17-hu-LQz" firstAttribute="leading" secondItem="wdw-Jg-klB" secondAttribute="leadingMargin" constant="8" id="dp3-CW-vK8"/>
                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="hKH-uY-uTz" secondAttribute="bottom" constant="8" id="fPc-Ue-Lga"/>
                                                 <constraint firstItem="hKH-uY-uTz" firstAttribute="top" secondItem="neX-dx-3Po" secondAttribute="bottom" constant="8" id="gJg-3Z-xsw"/>
@@ -80,9 +79,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="ImageView" destination="N17-hu-LQz" id="jvQ-yH-88r"/>
-                                            <outlet property="MovieSynopsis" destination="hKH-uY-uTz" id="2vo-t1-DXb"/>
-                                            <outlet property="MovieTitle" destination="neX-dx-3Po" id="44a-sZ-abF"/>
+                                            <outlet property="posterImageView" destination="N17-hu-LQz" id="sYZ-vg-KVw"/>
+                                            <outlet property="synopsisLabel" destination="hKH-uY-uTz" id="lBG-XH-Syg"/>
+                                            <outlet property="titleLabel" destination="neX-dx-3Po" id="T8W-dq-6X7"/>
                                             <segue destination="lYZ-RV-0vs" kind="show" id="N6D-Up-yfJ"/>
                                         </connections>
                                     </tableViewCell>
@@ -157,7 +156,7 @@
                                 </collectionViewCellContentView>
                                 <size key="customSize" width="180" height="187"/>
                                 <connections>
-                                    <outlet property="ImageView" destination="krh-Vh-lCx" id="Sra-yC-EUs"/>
+                                    <outlet property="imageView" destination="krh-Vh-lCx" id="IVw-xm-cx3"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -179,19 +178,19 @@
         <!--Details View Controller-->
         <scene sceneID="ElS-Kb-Ltb">
             <objects>
-                <viewController id="lYZ-RV-0vs" userLabel="Details View Controller" customClass="DetailsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailsViewController" id="lYZ-RV-0vs" userLabel="Details View Controller" customClass="DetailsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CVE-1A-YSx" customClass="UIScrollView">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GuD-B4-xE1" userLabel="MovieSynopsis">
-                                <rect key="frame" x="16" y="527.5" width="382" height="18"/>
+                                <rect key="frame" x="16" y="483.5" width="382" height="18"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                 <color key="textColor" systemColor="systemBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZXi-v8-PbS" userLabel="MovieTitle">
-                                <rect key="frame" x="16" y="449.5" width="382" height="70"/>
+                                <rect key="frame" x="16" y="405.5" width="382" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="1e0-ek-Zey"/>
                                 </constraints>
@@ -200,10 +199,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8hL-ay-gw8" userLabel="Backdrop Image View">
-                                <rect key="frame" x="0.0" y="44" width="414" height="280.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="280.5"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WFJ-Vn-Iya">
-                                <rect key="frame" x="16" y="224.5" width="220" height="200"/>
+                                <rect key="frame" x="16" y="180.5" width="220" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="JPs-ih-dgW"/>
                                     <constraint firstAttribute="width" constant="220" id="hTO-E7-Hhq"/>
@@ -219,7 +218,6 @@
                             <constraint firstItem="WFJ-Vn-Iya" firstAttribute="leading" secondItem="CVE-1A-YSx" secondAttribute="leading" constant="16" id="C1h-lW-LJH"/>
                             <constraint firstItem="ZXi-v8-PbS" firstAttribute="leading" secondItem="G44-CT-tse" secondAttribute="leading" constant="16" id="CSb-yF-jkP"/>
                             <constraint firstItem="ZXi-v8-PbS" firstAttribute="leading" secondItem="GuD-B4-xE1" secondAttribute="leading" id="Ft9-HZ-APE"/>
-                            <constraint firstItem="8hL-ay-gw8" firstAttribute="top" secondItem="G44-CT-tse" secondAttribute="top" id="Hjy-dm-ofV"/>
                             <constraint firstItem="G44-CT-tse" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="GuD-B4-xE1" secondAttribute="bottom" constant="16" id="Ksh-GR-Z7l"/>
                             <constraint firstItem="8hL-ay-gw8" firstAttribute="trailing" secondItem="G44-CT-tse" secondAttribute="trailing" id="M5J-LV-IN3"/>
                             <constraint firstItem="GuD-B4-xE1" firstAttribute="top" secondItem="ZXi-v8-PbS" secondAttribute="bottom" constant="8" id="cE5-8k-aac"/>
@@ -232,10 +230,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="bgi-5k-f4l"/>
                     <connections>
-                        <outlet property="BackdropImageView" destination="8hL-ay-gw8" id="VSB-3C-PRv"/>
-                        <outlet property="ImageView" destination="WFJ-Vn-Iya" id="oYp-6k-nU2"/>
-                        <outlet property="MovieSynopsis" destination="GuD-B4-xE1" id="H4L-5p-jlc"/>
-                        <outlet property="MovieTitle" destination="ZXi-v8-PbS" id="MTi-Hn-6Wf"/>
+                        <outlet property="backdropImageView" destination="8hL-ay-gw8" id="qh8-6j-QHj"/>
+                        <outlet property="posterImageView" destination="WFJ-Vn-Iya" id="rph-KG-6i3"/>
+                        <outlet property="synopsisLabel" destination="GuD-B4-xE1" id="o0n-PG-0Z2"/>
+                        <outlet property="titleLabel" destination="ZXi-v8-PbS" id="DSd-BM-mgq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XtV-EN-Kpf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

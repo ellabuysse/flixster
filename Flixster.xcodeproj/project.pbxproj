@@ -133,25 +133,17 @@
 		750ED29F285A45B400C15625 /* Flixster */ = {
 			isa = PBXGroup;
 			children = (
+				75D80C75286161930019C392 /* Views */,
+				75D80C742861614E0019C392 /* View Controllers */,
 				750ED2A0285A45B400C15625 /* AppDelegate.h */,
 				750ED2A1285A45B400C15625 /* AppDelegate.m */,
 				750ED2A3285A45B400C15625 /* SceneDelegate.h */,
 				750ED2A4285A45B400C15625 /* SceneDelegate.m */,
-				75E8C5FD285BC59A00280D58 /* MovieViewController.h */,
-				75E8C5FE285BC59A00280D58 /* MovieViewController.m */,
-				75E8C609285BF7E700280D58 /* GridViewController.h */,
-				75E8C60A285BF7E700280D58 /* GridViewController.m */,
 				750ED2A9285A45B400C15625 /* Main.storyboard */,
-				75E8C618285CE5D700280D58 /* DetailsViewController.h */,
-				75E8C619285CE5D700280D58 /* DetailsViewController.m */,
-				75E8C60C285C29FF00280D58 /* GridMovieCell.h */,
-				75E8C60D285C29FF00280D58 /* GridMovieCell.m */,
 				750ED2AC285A45B500C15625 /* Assets.xcassets */,
 				750ED2AE285A45B500C15625 /* LaunchScreen.storyboard */,
 				750ED2B1285A45B500C15625 /* Info.plist */,
 				750ED2B2285A45B500C15625 /* main.m */,
-				75E8C606285BC7E100280D58 /* MovieCell.h */,
-				75E8C607285BC7E100280D58 /* MovieCell.m */,
 			);
 			path = Flixster;
 			sourceTree = "<group>";
@@ -171,6 +163,30 @@
 				750ED2C8285A45B500C15625 /* FlixsterUITestsLaunchTests.m */,
 			);
 			path = FlixsterUITests;
+			sourceTree = "<group>";
+		};
+		75D80C742861614E0019C392 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				75E8C5FD285BC59A00280D58 /* MovieViewController.h */,
+				75E8C5FE285BC59A00280D58 /* MovieViewController.m */,
+				75E8C609285BF7E700280D58 /* GridViewController.h */,
+				75E8C60A285BF7E700280D58 /* GridViewController.m */,
+				75E8C618285CE5D700280D58 /* DetailsViewController.h */,
+				75E8C619285CE5D700280D58 /* DetailsViewController.m */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		75D80C75286161930019C392 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				75E8C60C285C29FF00280D58 /* GridMovieCell.h */,
+				75E8C60D285C29FF00280D58 /* GridMovieCell.m */,
+				75E8C606285BC7E100280D58 /* MovieCell.h */,
+				75E8C607285BC7E100280D58 /* MovieCell.m */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		804A82BC15532F57CF67E53B /* Frameworks */ = {

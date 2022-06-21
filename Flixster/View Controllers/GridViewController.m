@@ -24,6 +24,7 @@
     self.moviesCollectionView.delegate = self;
     
     [self fetchMovies];
+    NSLog(@":EB: Grid");
 }
 
 
@@ -42,7 +43,7 @@
         UIAlertAction *tryAgainAction = [UIAlertAction actionWithTitle:@"Try Again" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             [self fetchMovies];
             }];
-        // add the tryAgainAction action to the alertController
+        // Add the tryAgainAction action to the alertController
         [networkAlert addAction:tryAgainAction];
 
     NSURL *url = [NSURL URLWithString:@"https://api.themoviedb.org/3/movie/now_playing?api_key=bf0f8a45cc2852450f8126c99ae834f0"];
@@ -54,7 +55,6 @@
            }
            else {
                NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-               NSLog(@"%@", dataDictionary);
                
                self.movies = dataDictionary[@"results"];
                [self.moviesCollectionView reloadData];
@@ -78,7 +78,7 @@
     NSString *baseURLString = @"https://image.tmdb.org/t/p/w500";
     NSString *fullPosterUrl = [baseURLString stringByAppendingString:movie[@"poster_path"]];
     NSURL *posterUrl = [NSURL URLWithString:fullPosterUrl];
-    [cell.ImageView setImageWithURL:posterUrl];
+    [cell.imageView setImageWithURL:posterUrl];
     
     return cell;
 }
