@@ -157,6 +157,7 @@
                                 <size key="customSize" width="180" height="187"/>
                                 <connections>
                                     <outlet property="imageView" destination="krh-Vh-lCx" id="IVw-xm-cx3"/>
+                                    <segue destination="lYZ-RV-0vs" kind="show" id="sov-l0-Pyz"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -238,9 +239,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XtV-EN-Kpf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2304.3478260869565" y="111.16071428571428"/>
+            <point key="canvasLocation" x="-1904" y="170"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="sov-l0-Pyz"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="now_playing_tabbar_item" width="21" height="21"/>
         <image name="ticket_tabbar_icon" width="25" height="25"/>

@@ -8,6 +8,7 @@
 #import "GridViewController.h"
 #import "GridMovieCell.h"
 #import "UIImageView+AFNetworking.h"
+#import "DetailsViewController.h"
 
 @interface GridViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 @property (weak, nonatomic) IBOutlet UICollectionView *moviesCollectionView;
@@ -89,6 +90,21 @@
     int widthDimensions = (CGFloat)(totalwidth / numberOfCellsPerRow);
     int heightDimensions = widthDimensions * 1.5;
     return CGSizeMake(widthDimensions, heightDimensions);
+}
+
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    UICollectionViewCell *cell = sender;
+    NSIndexPath *myIndexPath = [self.moviesCollectionView indexPathForCell:cell];
+
+    NSDictionary *data = self.movies[myIndexPath.row];
+    DetailsViewController *detailVC = [segue destinationViewController];
+    detailVC.movie = data;
+    
+    NSLog(@":EB: prepared for segue");
 }
 
 @end

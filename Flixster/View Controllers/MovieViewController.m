@@ -106,7 +106,6 @@
     NSDictionary *data = self.movies[indexPath.row];
     DetailsViewController *detailViewController = [segue destinationViewController];
     detailViewController.movie = data;
-    
-    NSLog(@":EB: %@", NSStringFromSelector(_cmd));
+
 }
 @end
